@@ -71,10 +71,16 @@ export class RoleControlComponent implements OnInit {
     let componentFactory = this.componentFactoryResolver.resolveComponentFactory(CheckboxComponent);
     let viewContainerRef = this.cbHost.viewContainerRef;
     viewContainerRef.clear();
-    
     let componentRef = viewContainerRef.createComponent(componentFactory);
+
+
+    // 数据交互
+    let title = e.node.title;
+    if(!e.node.isChecked){
+      title = title +"(该菜单目前仍未被选择)"
+    }
     let inputs:CheckData ={
-      title:e.node.title,
+      title:title,
       checkOptionsOne:[{
         label: '权限1',
         value: '1', 

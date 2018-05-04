@@ -19,6 +19,8 @@ import { ProgressLinesComponent } from './comps/progress-lines/progress-lines.co
 import { RoleControlComponent } from './pages/role-control/role-control.component';
 import { CheckboxComponent } from './comps/checkbox/checkbox.component';
 import { CheckBoxDirective } from './comps/directives/check-box.directive';
+import { ScompComponent } from './simples/scomp/scomp.component';
+
 
 
 
@@ -47,6 +49,8 @@ import { CheckBoxDirective } from './comps/directives/check-box.directive';
     RoleControlComponent,
     CheckboxComponent,
     CheckBoxDirective,
+    ScompComponent,
+
    
    
     

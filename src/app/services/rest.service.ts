@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import {  HttpClient,HttpHeaders,HttpErrorResponse  } from '@angular/common/http';
+import { HttpClient,HttpHeaders,HttpErrorResponse  } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';// 操作数据流
 import { Observable } from 'rxjs/Observable';// 数据流
 import 'rxjs/add/observable/throw';
+import { Irest } from './interface/irest';
 
 @Injectable()
 export class RestService {
@@ -54,6 +55,23 @@ export class RestService {
         console.log("没有权限则返回登录页")
       }
       return Observable.throw(errorMsg);
+    }
+
+    //test
+    getComman$(req:Irest){
+      return this.http
+      .get(req.url,{headers:new HttpHeaders().set('auth',this._authHeader),params:req.params})
+      .pipe(
+        catchError((error) => this._handleError(error))
+      )
+    }
+
+    postComman$(req:Irest){
+      return this.http
+      .post(req.url,req.body,{headers:new HttpHeaders().set('auth',this._authHeader),params:req.params},)
+      .pipe(
+        catchError((error) => this._handleError(error))
+      )
     }
 
 }

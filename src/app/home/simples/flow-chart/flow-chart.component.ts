@@ -31,9 +31,9 @@ export class FlowChartComponent implements OnInit {
   loadComp(num){
     const Component =  this.resolver.resolveComponentFactory(ProgressLinesComponent);
     this.comp = this.ViewContainerRef.createComponent(Component);
-    console.log(this.comp.instance);
+   // console.log(this.comp.instance);
     this.comp.instance.percent = num;
-    console.log(this.comp);
+   // console.log(this.comp);
   }
   data;
 

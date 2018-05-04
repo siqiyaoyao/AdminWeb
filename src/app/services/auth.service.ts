@@ -48,6 +48,7 @@ export class AuthService {
     this.rest.getAccountInfo$(responds.accountId)
         .subscribe(val =>{
           this._setAccountInfo(val.Vals);
+          console.log(val.Vals)
         })
     
   }
@@ -64,7 +65,7 @@ export class AuthService {
     localStorage.setItem('AccountPwd',acResults.AccountPwd);
     localStorage.setItem('DeptId',acResults.DeptId);
     localStorage.setItem('Name',acResults.Name);
-
+    console.log(localStorage)
   }
 
   logout():void{

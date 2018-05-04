@@ -1,3 +1,4 @@
+import { ScompComponent } from './simples/scomp/scomp.component';
 import { RoleControlComponent } from './pages/role-control/role-control.component';
 import { FlowResizeComponent } from './simples/flow-resize/flow-resize.component';
 import { FlowChartComponent } from './simples/flow-chart/flow-chart.component';
@@ -21,7 +22,8 @@ const homeRoutes: Routes = [
         { path: 'test', component: GetdataComponent },
         { path: 'flowchart', component: FlowChartComponent },
         { path: 'flow', component: FlowResizeComponent },
-        { path: 'role', component: RoleControlComponent }
+        { path: 'role', component: RoleControlComponent },
+        { path: 'scomp', component: ScompComponent }
       ],
     },
       
