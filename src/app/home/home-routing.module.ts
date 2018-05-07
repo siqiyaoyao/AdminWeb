@@ -1,3 +1,4 @@
+import { CommonTableComponent } from './simples/common-table/common-table.component';
 import { ScompComponent } from './simples/scomp/scomp.component';
 import { RoleControlComponent } from './pages/role-control/role-control.component';
 import { FlowResizeComponent } from './simples/flow-resize/flow-resize.component';
@@ -23,7 +24,8 @@ const homeRoutes: Routes = [
         { path: 'flowchart', component: FlowChartComponent },
         { path: 'flow', component: FlowResizeComponent },
         { path: 'role', component: RoleControlComponent },
-        { path: 'scomp', component: ScompComponent }
+        { path: 'scomp', component: ScompComponent },
+        { path: 'table', component: CommonTableComponent },
       ],
     },
       

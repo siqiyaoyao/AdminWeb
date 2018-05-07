@@ -20,6 +20,8 @@ import { RoleControlComponent } from './pages/role-control/role-control.componen
 import { CheckboxComponent } from './comps/checkbox/checkbox.component';
 import { CheckBoxDirective } from './comps/directives/check-box.directive';
 import { ScompComponent } from './simples/scomp/scomp.component';
+import { CommonGridComponent } from './simples/common-grid/common-grid.component';
+import { CommonTableComponent } from './simples/common-table/common-table.component';
 
 
 
@@ -50,6 +52,8 @@ import { ScompComponent } from './simples/scomp/scomp.component';
     CheckboxComponent,
     CheckBoxDirective,
     ScompComponent,
+    CommonGridComponent,
+    CommonTableComponent,
 
    
    

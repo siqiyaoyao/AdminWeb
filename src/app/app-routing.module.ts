@@ -4,8 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { PrototypeComponent } from './prototype/prototype.component';
 
 const routes: Routes = [
-  { path: '' ,redirectTo:'/login', pathMatch:'full'},//normal
- // { path: '' ,redirectTo:'/home/role', pathMatch:'full'},// test
+  //{ path: '' ,redirectTo:'/login', pathMatch:'full'},//normal
+  { path: '' ,redirectTo:'/home/role', pathMatch:'full'},// test
   { path: 'login', loadChildren: 'app/login/login.module#LoginModule'},
   { path: 'home', loadChildren: 'app/home/home.module#HomeModule'},
   { path: '', component: LoginComponent},
