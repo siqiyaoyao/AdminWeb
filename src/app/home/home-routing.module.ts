@@ -1,3 +1,4 @@
+import { CommonGridComponent } from './simples/common-grid/common-grid.component';
 import { CommonTableComponent } from './simples/common-table/common-table.component';
 import { ScompComponent } from './simples/scomp/scomp.component';
 import { RoleControlComponent } from './pages/role-control/role-control.component';
@@ -26,6 +27,7 @@ const homeRoutes: Routes = [
         { path: 'role', component: RoleControlComponent },
         { path: 'scomp', component: ScompComponent },
         { path: 'table', component: CommonTableComponent },
+        { path: 'grid', component: CommonGridComponent },
       ],
     },
       

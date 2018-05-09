@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
+import { Itable } from '../../interface/itable.service';
+
+
+
 registerLocaleData(zh);
 @Component({
   selector: 'app-common-table',
@@ -8,7 +12,13 @@ registerLocaleData(zh);
   styleUrls: ['./common-table.component.less']
 })
 export class CommonTableComponent implements OnInit {
+  
 
+  constructor(
+    private tableServices:Itable,
+    
+  ) {
+  }
   listOfSelection = [
     {
       text    : '全选',
@@ -67,4 +77,13 @@ export class CommonTableComponent implements OnInit {
     `
     document.getElementById("1").appendChild(objtr);
   }
+  onClickTest(id):void{
+    console.log('bingo')
+    this.tableServices.click(id);
+  }
+
+  
+
+  
+
 }
