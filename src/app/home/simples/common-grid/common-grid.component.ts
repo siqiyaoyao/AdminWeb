@@ -6,6 +6,15 @@ import { NzModalRef, NzModalService } from 'ng-zorro-antd';
 import { Imodal } from '../../interface/Imodal';
 import { RoleControlComponent } from '../../pages/role-control/role-control.component';
 
+interface FormItemOption {
+  type: string;
+  label: string;
+  name: string;
+  placeholder?: string;
+  options?: any;
+}
+
+
 @Component({
   selector: 'app-common-grid',
   templateUrl: './common-grid.component.html',
@@ -26,6 +35,42 @@ export class CommonGridComponent implements OnInit,Itable {
   tplModal: NzModalRef;
   tpl:TemplateRef<any>;
   @ViewChild('template') ref :TemplateRef<any>;
+
+  //form
+  config: FormItemOption[] = [
+    {
+      type: 'input',
+      label: 'Full name',
+      name: 'name',
+      placeholder: 'Enter your name'
+    },
+    {
+      type: 'input',
+      label: 'ID',
+      name: 'key',
+      placeholder: 'Enter your ID'
+    },
+    {
+      type: 'select',
+      label: 'Favourite food',
+      name: 'food',
+      options: [
+        {
+        value: 'zhejiang',
+        label: 'Zhejiang',
+        }, 
+        {
+        value: 'jiangsu',
+        label: 'Jiangsu',
+        }],
+      placeholder: 'Select an option'
+    },
+    {
+      type: 'button',
+      label: 'Submit',
+      name: 'submit'
+    }
+  ];
 
   constructor(
     private modalService:NzModalService,

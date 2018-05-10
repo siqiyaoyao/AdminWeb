@@ -1,0 +1,12 @@
+<div [formGroup]="group">
+  <label>{{ config.label }}</label>
+  <nz-select [formControlName]="config.name" >
+   <nz-option [nzLabel]="config.placeholder" [nzValue]="" placeholder></nz-option>
+     <!-- <nz-option  *ngFor="let option of config.options">
+      {{ option }}
+    </nz-option> -->
+    <nz-option  *ngFor="let option of config.options" [nzLabel]="option.label" [nzValue]="option.value">
+
+    </nz-option>
+  </nz-select>
+</div>

@@ -1,7 +1,7 @@
 import { RoleTree } from './models/tree.mode';
 import { Flow } from './models/flow.mode';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RestService } from './../services/rest.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -22,6 +22,11 @@ import { CheckBoxDirective } from './comps/directives/check-box.directive';
 import { ScompComponent } from './simples/scomp/scomp.component';
 import { CommonGridComponent } from './simples/common-grid/common-grid.component';
 import { CommonTableComponent } from './simples/common-table/common-table.component';
+import { CommonFormComponent } from './simples/common-form/common-form.component';
+import { FormInputComponent } from './comps/form-input/form-input.component';
+import { FormSelectComponent } from './comps/form-select/form-select.component';
+import { FormButtonComponent } from './comps/form-button/form-button.component';
+import { DynamicFieldDirective } from './directives/dynamic-field.directive';
 
 
 
@@ -35,6 +40,7 @@ import { CommonTableComponent } from './simples/common-table/common-table.compon
     CommonModule,
     HomeRoutingModule,
     NgZorroAntdModule,
+    ReactiveFormsModule,
     HttpClientModule,
     FormsModule
     
@@ -51,18 +57,25 @@ import { CommonTableComponent } from './simples/common-table/common-table.compon
     RoleControlComponent,
     CheckboxComponent,
     CheckBoxDirective,
+    DynamicFieldDirective,
     ScompComponent,
     CommonGridComponent,
     CommonTableComponent,
+    CommonFormComponent,
+    FormInputComponent,
+    FormSelectComponent,
+    FormButtonComponent,
+    DynamicFieldDirective,
 
-   
-   
-    
-    
     //GetdataComponent,
     //DemoComponent,
     
     
+  ],
+  entryComponents: [
+    FormButtonComponent,
+    FormInputComponent,
+    FormSelectComponent,
   ],
   providers:[
     RestService,
