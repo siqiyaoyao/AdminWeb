@@ -77,7 +77,8 @@ export class CommonTableComponent implements OnInit {
     `
     document.getElementById("1").appendChild(objtr);
   }
-  onClickTest(id):void{
+ 
+  t(id):void{
     console.log('bingo')
     this.tableServices.click(id);
   }

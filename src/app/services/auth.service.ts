@@ -20,9 +20,9 @@ export class AuthService {
     return this.rest.loginCheck$(url,data)
             .do(
               res =>{
-              if(res.Success){ // 通过服务器返回结果来确定登录状态
+              if(res.flag ==1){ // 通过服务器返回结果来确定登录状态
                 this.isLoggedIn = true;
-                this._setBasicSession(res.Token);
+              //  this._setBasicSession(res.Token);
               }else{
                 this.isLoggedIn =false;
               }

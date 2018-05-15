@@ -24,6 +24,7 @@ interface FormItemOption {
     //SMSServiceProvider,
     //{provide:Itable,useClass:TableSevicesService}, 
     //{provide:Itable,useClass:Table2SevicesService}, 
+   
     {provide:Itable,useClass:CommonGridComponent},
     
     

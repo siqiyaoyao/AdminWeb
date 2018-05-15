@@ -16,12 +16,15 @@ export class RestService {
   
     //登录验证
     loginCheck$(url,data){
+      console.log(data);
       return this.http
         .post(url,data,
           {headers:new HttpHeaders().set('Content-type', 'application/json;charset=UTF-8')}
+          
         )
         .pipe(
           catchError((error) => this._handleError(error))
+          
         )
     }
     //获取储存在token内的验证用户的信息

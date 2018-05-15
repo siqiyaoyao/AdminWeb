@@ -14,8 +14,8 @@ export class LoginComponent implements OnInit {
   isLoading = false;
   tips = false;
   message ='';
-  loginUrl:string = 'http://192.168.1.33:8088/mapi/login'; // 登录验证地址
-
+  //loginUrl:string = 'http://192.168.1.33:8088/mapi/login'; // 登录验证地址
+  loginUrl:string = 'http://192.168.1.44:9996/japi/login'
   validateForm:FormGroup;
 
 
@@ -76,8 +76,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.validateForm = this.fb.group({
-      accountName: [ null, [ Validators.required ] ], //双向数据绑定并与服务器字段匹配
-      accountPwd: [ null, [ Validators.required ] ],
+      username: [ null, [ Validators.required ] ], //双向数据绑定并与服务器字段匹配
+      password: [ null, [ Validators.required ] ],
       remember: [ true ],
       test:[],
     });
