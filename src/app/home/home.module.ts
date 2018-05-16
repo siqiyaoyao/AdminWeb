@@ -27,6 +27,9 @@ import { FormInputComponent } from './comps/form-input/form-input.component';
 import { FormSelectComponent } from './comps/form-select/form-select.component';
 import { FormButtonComponent } from './comps/form-button/form-button.component';
 import { DynamicFieldDirective } from './directives/dynamic-field.directive';
+import { CommonSearchComponent } from './simples/common-search/common-search.component';
+import { DateInputComponent } from './comps/date-input/date-input.component';
+
 
 
 
@@ -66,6 +69,9 @@ import { DynamicFieldDirective } from './directives/dynamic-field.directive';
     FormSelectComponent,
     FormButtonComponent,
     DynamicFieldDirective,
+    CommonSearchComponent,
+    DateInputComponent,
+ 
 
     //GetdataComponent,
     //DemoComponent,
@@ -76,6 +82,7 @@ import { DynamicFieldDirective } from './directives/dynamic-field.directive';
     FormButtonComponent,
     FormInputComponent,
     FormSelectComponent,
+    DateInputComponent
   ],
   providers:[
     RestService,

@@ -22,7 +22,7 @@ export class AuthService {
               res =>{
               if(res.flag ==1){ // 通过服务器返回结果来确定登录状态
                 this.isLoggedIn = true;
-              //  this._setBasicSession(res.Token);
+                this._setBasicSession(res);
               }else{
                 this.isLoggedIn =false;
               }
@@ -33,12 +33,7 @@ export class AuthService {
                 this._handleAuth(res.Token);  
               }           
             })
-    // return Observable
-    //   .of(true) //登录结果
-    //   .delay(1000) // 模拟登录时间
-    //   .do(val =>{
-    //     this.isLoggedIn = true;
-    //   })
+  
 
   }
 
@@ -47,36 +42,45 @@ export class AuthService {
    
     this.rest.getAccountInfo$(responds.accountId)
         .subscribe(val =>{
-          this._setAccountInfo(val.Vals);
+          //this._setAccountInfo(val.Vals);
           console.log(val.Vals)
         })
     
   }
 
   private _setBasicSession(authResults){ //储存token里的信息到session.记得登出的时候相应的要清空
-    localStorage.setItem('token',authResults);
-    localStorage.setItem('accuntName',authResults.accountName);
-    localStorage.setItem('accountId',authResults.accountId);
-    localStorage.setItem('roles',authResults.roles);
-    localStorage.setItem('isAdmin',authResults.isAdmin);
+    localStorage.setItem('token',authResults.token);
+    localStorage.setItem('name',authResults.user.name);
+    localStorage.setItem('account',authResults.user.account);
+    localStorage.setItem('avatar',authResults.user.avatar);
+    localStorage.setItem('deptId',authResults.user.deptId);
+    localStorage.setItem('deptName',authResults.user.deptName);
+    localStorage.setItem('id',authResults.user.id);
+    localStorage.setItem('roleList',authResults.user.roleList);
+    localStorage.setItem('roleNames',authResults.user.roleNames);
   }
 
   private _setAccountInfo(acResults){
     localStorage.setItem('AccountPwd',acResults.AccountPwd);
     localStorage.setItem('DeptId',acResults.DeptId);
     localStorage.setItem('Name',acResults.Name);
-    console.log(localStorage)
+    
   }
 
   logout():void{
     this.isLoggedIn = false;
     //auth
     localStorage.removeItem('token');
-    localStorage.removeItem('accountName');
+    localStorage.removeItem('name');
     localStorage.removeItem('accountId');
-    localStorage.removeItem('roles');
-    localStorage.removeItem('isAdmin');
-    //accountInfo
+    localStorage.removeItem('account');
+    localStorage.removeItem('avatar');
+    localStorage.removeItem('deptId');
+    localStorage.removeItem('deptName');
+    localStorage.removeItem('id');
+    localStorage.removeItem('roleList');
+    localStorage.removeItem('roleNames');
+    console.log(localStorage)
 
   }
 }

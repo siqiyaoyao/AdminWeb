@@ -1,3 +1,4 @@
+import { CommonFormComponent } from './../common-form/common-form.component';
 import { TableSevicesService } from './../../services/table-sevices.service';
 import { Component, OnInit,TemplateRef,AfterViewInit,ViewChild,ViewContainerRef, } from '@angular/core';
 import { Itable } from '../../interface/itable.service';
@@ -29,14 +30,83 @@ interface FormItemOption {
     
     
   ],
-  entryComponents:[RoleControlComponent]
+  entryComponents:[RoleControlComponent,CommonFormComponent]
 })
 export class CommonGridComponent implements OnInit,Itable {
   //modal
   tplModal: NzModalRef;
   tpl:TemplateRef<any>;
   @ViewChild('template') ref :TemplateRef<any>;
-
+  // search
+  configSearch =[
+    {
+      type: 'input',
+      label: 'Full name',
+      name: 'name',
+      placeholder: 'Enter your name',
+      temp:[]
+    },
+    {
+      type: 'input',
+      label: 'ID',
+      name: 'key',
+      placeholder: 'Enter your ID',
+      temp:[]
+    },
+    {
+      type: 'select',
+      label: 'Favourite food',
+      name: 'food',
+      options: [
+        {
+        value: 'zhejiang',
+        label: 'Zhejiang',
+        }, 
+        {
+        value: 'jiangsu',
+        label: 'Jiangsu',
+        }],
+      placeholder: 'Select an option',
+      temp:[]
+    },
+    {
+      type: 'input',
+      label: '测试',
+      name: 'name',
+      placeholder: 'Enter your name',
+      temp:[]
+    },
+    {
+      type: 'date',
+      label: '日期选择',
+      name: 'name',
+    //  placeholder: 'Enter your name',
+      temp:[]
+    },
+    {
+      type: 'input',
+      label: 'ID',
+      name: 'key',
+      placeholder: 'Enter your ID',
+      temp:[]
+    },
+    {
+      type: 'select',
+      label: 'Favourite food',
+      name: 'food',
+      options: [
+        {
+        value: 'zhejiang',
+        label: 'Zhejiang',
+        }, 
+        {
+        value: 'jiangsu',
+        label: 'Jiangsu',
+        }],
+      placeholder: 'Select an option',
+      temp:[]
+    },
+  ]
   //form
   config: FormItemOption[] = [
     {
@@ -83,26 +153,23 @@ export class CommonGridComponent implements OnInit,Itable {
    // console.log(this.ref)
   }
 
-  ngAfterViewInit(){
-    //console.dir(this)
-    console.log(this.viewContainerRef)
-  }
+
 
   createTplModal(tplTitle: TemplateRef<{}>, tplContent: TemplateRef<{}>, tplFooter: TemplateRef<{}>):void{
-    this.tplModal = this.modalService.create({
+    this.tplModal = this.modalService.create({    
       nzTitle: tplTitle,
       nzContent: tplContent,
-      nzFooter: tplFooter,
+      nzFooter: null,
       nzMaskClosable: false,
       nzClosable: true,
-      nzOnOk: () => console.log('Click ok')
     });
+    console.log(tplContent)
   }
 
   createModal(): void {
     this.modalService.create({
       nzTitle: 'Modal Title',
-      nzContent: RoleControlComponent,
+      nzContent: CommonFormComponent,
       nzClosable: false,
       nzOnOk: () => new Promise((resolve) => window.setTimeout(resolve, 1000))
     });
@@ -116,13 +183,23 @@ export class CommonGridComponent implements OnInit,Itable {
     }, 1000);
   }
 
+ 
+
   click(id){
     console.log(id);
     console.log('self'+id);
-    console.log(this.tpl)
+   
     this.createModal();
    // this.tplModal(this.tplTitle,tplContent,tplFooter)
   }
+  // 编辑框
+  formSubmitted(value:any){
+    console.log(value);
+  }
 
+  // 搜索框
+  search(value){
+    console.log(value)
+  }
 
 }

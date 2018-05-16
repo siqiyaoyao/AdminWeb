@@ -1,25 +1,25 @@
-<p>
-  common-grid works!
-</p>
-<button nz-button nzType="primary" (click)="createTplModal(tplTitle, tplContent, tplFooter)">
+<app-common-search
+[config]="configSearch"
+(searched) = "search($event)"
+></app-common-search>
+<!-- <button nz-button nzType="primary" (click)="createTplModal(tplTitle, tplContent, tplFooter)">
   <span>Template</span>
-</button>
-<app-common-table> </app-common-table>
+</button> -->
+<p></p>
+<app-common-table
+(addForm)="createTplModal(tplTitle, tplContent, tplFooter)"
+> </app-common-table>
 <ng-template #tplTitle>
-  <span>Title Template</span>
+  <span>编辑框</span>
 </ng-template>
-<!-- <ng-template #tplContent>
-  <p>some contents...</p>
-  <p>some contents...</p>
-  <p>some contents...</p>
-  <p>some contents...</p>
-  <p>some contents...</p>
-</ng-template> -->
+
 <template #test>
 <ng-template #tplContent>
-<app-common-form [config]="config"> </app-common-form>
+<app-common-form [config]="config"
+(submitted) = "formSubmitted($event)"
+> </app-common-form>
 </ng-template>
 </template>
-<ng-template #tplFooter>
+<!-- <ng-template #tplFooter>
   <button nz-button nzType="primary" (click)="destroyTplModal()" [nzLoading]="tplModalButtonLoading">Close after submit</button>
-</ng-template>
+</ng-template> -->

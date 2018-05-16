@@ -1,5 +1,9 @@
-<div [formGroup]="group">
+<div [formGroup]="group" >
+  <nz-form-control [nzSpan]="isHorizontal? 14:null" [nzOffset]="isHorizontal? 4:null">
+  <div nz-col  style="text-align: right;">
   <button nz-button nzType="primary" type="submit">
     {{ config.label }}
   </button>
+</div>
+</nz-form-control>
 </div>

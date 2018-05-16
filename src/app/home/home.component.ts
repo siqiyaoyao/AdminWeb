@@ -1,3 +1,4 @@
+import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -75,14 +76,19 @@ export class HomeComponent implements OnInit {
       url:"/home/demo"
     }
   ]  
-  constructor(private router:Router) { }
+  constructor(
+    private router:Router,
+    private auth:AuthService
+  ) { }
 
   ngOnInit() {
-    this.accountName = localStorage.getItem('Name');
+    this.accountName = localStorage.getItem('name');
   }
 
   logout(){
     this.router.navigate(['/login'])
+    this.auth.logout();
+
   }
 }
 

@@ -1,14 +1,17 @@
+
 import { FormSelectComponent } from './../comps/form-select/form-select.component';
 import { FormButtonComponent } from './../comps/form-button/form-button.component';
 import { FormGroup } from '@angular/forms';
 import { Directive, Input, ComponentFactoryResolver, ViewContainerRef, OnInit } from '@angular/core';
 import { FormInputComponent } from '../comps/form-input/form-input.component';
+import { DateInputComponent } from '../comps/date-input/date-input.component';
 
 //建立映射
 const components ={
   button:FormButtonComponent,
   input:FormInputComponent,
-  select:FormSelectComponent
+  select:FormSelectComponent,
+  date:DateInputComponent
 }
 
 @Directive({

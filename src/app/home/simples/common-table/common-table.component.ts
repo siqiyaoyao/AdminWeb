@@ -1,4 +1,4 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { Itable } from '../../interface/itable.service';
@@ -12,7 +12,7 @@ registerLocaleData(zh);
   styleUrls: ['./common-table.component.less']
 })
 export class CommonTableComponent implements OnInit {
-  
+  @Output() addForm:EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
     private tableServices:Itable,
@@ -78,7 +78,7 @@ export class CommonTableComponent implements OnInit {
     document.getElementById("1").appendChild(objtr);
   }
  
-  t(id):void{
+  onClickTest(id):void{
     console.log('bingo')
     this.tableServices.click(id);
   }
