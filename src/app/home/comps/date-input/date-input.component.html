@@ -1,4 +1,7 @@
 <div [formGroup]="group" >
 <label>{{ config.label }}</label>
-<nz-range-picker [nzFormat]="dateFormat"></nz-range-picker>
+<nz-range-picker
+[nzFormat]="dateFormat"
+[formControlName]="config.name"
+></nz-range-picker>
 </div>

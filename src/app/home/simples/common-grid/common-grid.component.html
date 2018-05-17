@@ -8,11 +8,14 @@
 <p></p>
 <app-common-table
 (addForm)="createTplModal(tplTitle, tplContent, tplFooter)"
+[tableTitles] ='dataSet1'
+[tableData] ='dataSet'
+[pageSize] = 10
 > </app-common-table>
+
 <ng-template #tplTitle>
   <span>编辑框</span>
 </ng-template>
-
 <template #test>
 <ng-template #tplContent>
 <app-common-form [config]="config"

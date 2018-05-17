@@ -1,7 +1,7 @@
-import { Component, OnInit, Output, EventEmitter, } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
-import { Itable } from '../../interface/itable.service';
+
 
 
 
@@ -14,8 +14,14 @@ registerLocaleData(zh);
 export class CommonTableComponent implements OnInit {
   @Output() addForm:EventEmitter<any> = new EventEmitter<any>();
 
+  @Input() tableTitles;
+  @Input() tableData;
+  @Input() pageSize;
+
+  
+ 
   constructor(
-    private tableServices:Itable,
+
     
   ) {
   }
@@ -29,31 +35,31 @@ export class CommonTableComponent implements OnInit {
     {
       text    : '选择单数项',
       onSelect: () => {
-        this.dataSet.forEach((data, index) => data.checked = index % 2 !== 0);
+        this.tableData.forEach((data, index) => data.checked = index % 2 !== 0);
         this.refreshStatus();
       }
     },
     {
       text    : '选择偶数项',
       onSelect: () => {
-        this.dataSet.forEach((data, index) => data.checked = index % 2 === 0);
+        this.tableData.forEach((data, index) => data.checked = index % 2 === 0);
         this.refreshStatus();
       }
     }
   ];
   allChecked = false;
-  dataSet: Array<{ name: string; age: number; address: string; checked: boolean }> = [];
+ // dataSet: Array<{ name: string; age: number; address: string; checked: boolean }> = [];
   indeterminate = false;
 
   refreshStatus(): void {
-    const allChecked = this.dataSet.every(value => value.checked === true);
-    const allUnChecked = this.dataSet.every(value => !value.checked);
+    const allChecked = this.tableData.every(value => value.checked === true);
+    const allUnChecked = this.tableData.every(value => !value.checked);
     this.allChecked = allChecked;
     this.indeterminate = (!allChecked) && (!allUnChecked);
   }
 
   checkAll(value: boolean): void {
-    this.dataSet.forEach(data => data.checked = value);
+    this.tableData.forEach(data => data.checked = value);
     this.refreshStatus();
     this.add();
   }
@@ -61,26 +67,26 @@ export class CommonTableComponent implements OnInit {
     name:"11",
   }
   ngOnInit(): void {
-    for (let i = 0; i < 10; i++) {
-      this.dataSet.push({
-        name   : `Edward King ${i}`,
-        age    : 32,
-        address: `London, Park Lane no. ${i}`,
-        checked: false
-      });
-    }
+    // for (let i = 0; i < 10; i++) {
+    //   this.dataSet.push({
+    //     name   : `Edward King ${i}`,
+    //     age    : 32,
+    //     address: `London, Park Lane no. ${i}`,
+    //     checked: false
+    //   });
+    // }
   }
   add():void{
-    let objtr = document.createElement('td');
-    objtr.innerHTML = `
-    <td>${this.data.name}</td>
-    `
-    document.getElementById("1").appendChild(objtr);
+    // let objtr = document.createElement('td');
+    // objtr.innerHTML = `
+    // <td>${this.data.name}</td>
+    // `
+    // document.getElementById("1").appendChild(objtr);
   }
  
   onClickTest(id):void{
     console.log('bingo')
-    this.tableServices.click(id);
+    
   }
 
   
@@ -88,3 +94,4 @@ export class CommonTableComponent implements OnInit {
   
 
 }
+ 

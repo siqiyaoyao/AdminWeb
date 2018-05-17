@@ -10,9 +10,13 @@ export class DateInputComponent implements OnInit {
   monthFormat = 'yyyy/MM';
   config:any;
   group:FormGroup;
+  date:any;
   constructor() { }
 
   ngOnInit() {
   }
-
+  onChange(result: Date[]): void {
+    console.log('From: ', result[ 0 ], ', to: ', result[ 1 ]);
+    console.log(this.date);
+  }
 }

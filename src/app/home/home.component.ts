@@ -35,20 +35,20 @@ export class HomeComponent implements OnInit {
   accountName:string;
   menuData = [
     {
-      title:"一级",
+      title:"OA办公",
       url:"",
       icon:"anticon-user",
       children:[
         {
-          title:"二级",
-          url:"",
+          title:"我的通告",
+          url:"/home/oa/myAnnounce",
           icon:"anticon-setting",
-          children:[
-            {
-              "title":"三级",
-              "url":"/home"
-            }
-          ]
+          // children:[
+          //   {
+          //     "title":"三级",
+          //     "url":"/home"
+          //   }
+          // ]
         }
       ]
     },{

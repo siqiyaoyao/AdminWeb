@@ -1,3 +1,4 @@
+import { MyAnnounceComponent } from './pages/my-announce/my-announce.component';
 import { CommonFormComponent } from './simples/common-form/common-form.component';
 import { CommonGridComponent } from './simples/common-grid/common-grid.component';
 import { CommonTableComponent } from './simples/common-table/common-table.component';
@@ -32,6 +33,12 @@ const homeRoutes: Routes = [
         { path: 'form', component: CommonFormComponent },
       ],
     },
+    { path: 'oa',
+    children:[
+      { path: 'myAnnounce', component: MyAnnounceComponent },
+    ]
+  
+  },
       
     { path: 'demo', component: DemoComponent },
   

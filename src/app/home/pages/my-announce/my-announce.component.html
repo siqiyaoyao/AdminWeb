@@ -1,0 +1,24 @@
+<app-common-search
+[config]="configSearch"
+[buttionOption] = 'buttionOption'
+(searched) = "search($event)"
+></app-common-search>
+<p></p>
+
+<app-common-table
+(addForm)="createTplModal(tplTitle, tplContent, tplFooter)"
+[tableTitles] ='tableTitles'
+[tableData] ='tableData'
+[pageSize] = 10
+> </app-common-table>
+
+<ng-template #tplTitle>
+    <span>编辑框</span>
+  </ng-template>
+  <template >
+  <ng-template #tplContent>
+  <app-common-form [config]="modalConfig"
+  (submitted) = "formSubmitted($event)"
+> </app-common-form>
+</ng-template>
+</template>

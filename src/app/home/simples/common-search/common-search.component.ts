@@ -13,6 +13,7 @@ import {
 export class CommonSearchComponent implements OnInit {
   @Output() searched:EventEmitter<any> = new EventEmitter<any>();  
   @Input() config: any[] = [];
+  @Input() buttionOption
 
   validateForm: FormGroup;
   controlArray = [];

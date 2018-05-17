@@ -37,6 +37,38 @@ export class CommonGridComponent implements OnInit,Itable {
   tplModal: NzModalRef;
   tpl:TemplateRef<any>;
   @ViewChild('template') ref :TemplateRef<any>;
+
+  // table
+  dataSet1 =['key','name','age','address'
+  ]
+
+  dataSet = [
+    {
+      key    : '1',
+      name   : 'John Brown',
+      age    : 32,
+      address: 'New York No. 1 Lake Park',
+      checked:false
+    },
+    {
+      key    : '2',
+      name   : 'Jim Green',
+      age    : 42,
+      address: 'London No. 1 Lake Park',
+      checked:false
+
+    },
+    {
+      key    : '3',
+      name   : 'Joe Black',
+      age    : 32,
+      address: 'Sidney No. 1 Lake Park',
+      checked:false
+    }
+  ];
+
+
+
   // search
   configSearch =[
     {
@@ -72,28 +104,28 @@ export class CommonGridComponent implements OnInit,Itable {
     {
       type: 'input',
       label: '测试',
-      name: 'name',
+      name: 'name1',
       placeholder: 'Enter your name',
       temp:[]
     },
     {
       type: 'date',
       label: '日期选择',
-      name: 'name',
+      name: 'date',
     //  placeholder: 'Enter your name',
       temp:[]
     },
     {
       type: 'input',
       label: 'ID',
-      name: 'key',
+      name: 'key1',
       placeholder: 'Enter your ID',
       temp:[]
     },
     {
       type: 'select',
       label: 'Favourite food',
-      name: 'food',
+      name: 'food1',
       options: [
         {
         value: 'zhejiang',

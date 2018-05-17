@@ -1,3 +1,4 @@
+import { myAnnounceData } from './models/myAnnounceData';
 import { RoleTree } from './models/tree.mode';
 import { Flow } from './models/flow.mode';
 
@@ -29,6 +30,7 @@ import { FormButtonComponent } from './comps/form-button/form-button.component';
 import { DynamicFieldDirective } from './directives/dynamic-field.directive';
 import { CommonSearchComponent } from './simples/common-search/common-search.component';
 import { DateInputComponent } from './comps/date-input/date-input.component';
+import { MyAnnounceComponent } from './pages/my-announce/my-announce.component';
 
 
 
@@ -71,6 +73,7 @@ import { DateInputComponent } from './comps/date-input/date-input.component';
     DynamicFieldDirective,
     CommonSearchComponent,
     DateInputComponent,
+    MyAnnounceComponent,
  
 
     //GetdataComponent,
@@ -88,7 +91,9 @@ import { DateInputComponent } from './comps/date-input/date-input.component';
     RestService,
    // RoleTree,
    Flow,
-   RoleTree
+   RoleTree,
+   //测试数据
+   myAnnounceData
   ]
 })
 export class HomeModule { }
