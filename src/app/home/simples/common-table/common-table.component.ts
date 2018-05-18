@@ -17,9 +17,8 @@ export class CommonTableComponent implements OnInit {
   @Input() tableTitles;
   @Input() tableData;
   @Input() pageSize;
+  @Input() keyItem;
 
-  
- 
   constructor(
 
     
@@ -67,14 +66,8 @@ export class CommonTableComponent implements OnInit {
     name:"11",
   }
   ngOnInit(): void {
-    // for (let i = 0; i < 10; i++) {
-    //   this.dataSet.push({
-    //     name   : `Edward King ${i}`,
-    //     age    : 32,
-    //     address: `London, Park Lane no. ${i}`,
-    //     checked: false
-    //   });
-    // }
+
+ 
   }
   add():void{
     // let objtr = document.createElement('td');

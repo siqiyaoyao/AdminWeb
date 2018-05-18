@@ -1,21 +1,22 @@
+import { Itree } from './../interface/Itree';
 
 export class RoleTree {
-    public data =[
+    public data:Array<Itree> =[
       {
-      title   : 'root1',
+      title   : '总公司',
       key     : '1001',
       children: [
         {
-          title   : 'child1',
+          title   : '行政部',
           key     : '10001',
           children: [
             {
-              title   : 'child1.1',
+              title   : '小组1',
               key     : '100011',
               children: []
             },
             {
-              title   : 'child1.2',
+              title   : '小组2',
               key     : '100012',
               checked : true,
               children: [
@@ -29,23 +30,23 @@ export class RoleTree {
           ]
         },
         {
-          title : 'child2',
+          title : '总经办',
           key   : '10002',
           isLeaf: true
         }
       ]
     },
     {
-      title   : 'root2',
+      title   : '市场部',
       key     : '1002',
       children: [
         {
-          title   : 'child2.1',
+          title   : '市场1',
           key     : '10021',
           children: []
         },
         {
-          title     : 'child1.2',
+          title     : '市场2',
           key       : '10022',
           selectable: false,
           children  : [
@@ -58,7 +59,7 @@ export class RoleTree {
       ]
     },
     {
-    title: 'root3',
+    title: '技术部',
     key  : '1003'
     }
   ]

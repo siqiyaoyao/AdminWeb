@@ -50,7 +50,7 @@ export class myAnnounceData {
             checked:false
           },
           {
-            title    : '1',
+            title    : '2',
             type   : '会议通知',
             state    : '发布',
             checkState: '已读',
@@ -59,7 +59,7 @@ export class myAnnounceData {
       
           },
           {
-            title    : '1',
+            title    : '3',
             type   : '会议通知',
             state    : '发布',
             checkState: '已读',

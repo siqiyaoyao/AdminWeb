@@ -31,6 +31,8 @@ import { DynamicFieldDirective } from './directives/dynamic-field.directive';
 import { CommonSearchComponent } from './simples/common-search/common-search.component';
 import { DateInputComponent } from './comps/date-input/date-input.component';
 import { MyAnnounceComponent } from './pages/my-announce/my-announce.component';
+import { CommonTreeComponent } from './simples/common-tree/common-tree.component';
+import { UserManageComponent } from './pages/user-manage/user-manage.component';
 
 
 
@@ -74,6 +76,8 @@ import { MyAnnounceComponent } from './pages/my-announce/my-announce.component';
     CommonSearchComponent,
     DateInputComponent,
     MyAnnounceComponent,
+    CommonTreeComponent,
+    UserManageComponent,
  
 
     //GetdataComponent,

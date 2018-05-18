@@ -1,3 +1,5 @@
+import { CommonTreeComponent } from './simples/common-tree/common-tree.component';
+import { UserManageComponent } from './pages/user-manage/user-manage.component';
 import { MyAnnounceComponent } from './pages/my-announce/my-announce.component';
 import { CommonFormComponent } from './simples/common-form/common-form.component';
 import { CommonGridComponent } from './simples/common-grid/common-grid.component';
@@ -31,14 +33,17 @@ const homeRoutes: Routes = [
         { path: 'table', component: CommonTableComponent },
         { path: 'grid', component: CommonGridComponent },
         { path: 'form', component: CommonFormComponent },
+        { path: 'tree', component: CommonTreeComponent },
       ],
     },
     { path: 'oa',
     children:[
       { path: 'myAnnounce', component: MyAnnounceComponent },
-    ]
-  
-  },
+    ]},
+    { path: 'system',
+    children:[
+      { path: 'user', component: UserManageComponent },
+    ]},
       
     { path: 'demo', component: DemoComponent },
   

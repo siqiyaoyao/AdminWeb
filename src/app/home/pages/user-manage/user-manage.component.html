@@ -1,0 +1,37 @@
+
+<div nz-row nzGutter="16">
+  <div nz-col class="gutter-row" nzSpan ='6'>
+    <app-common-tree class="gutter-box"
+    [config]="treeConfig"
+    (mouseActionExpand) ="expand($event)"
+    (mouseActionClick) = "click($event)"
+    ></app-common-tree>
+  </div>
+  <div nz-col class="gutter-row" nzSpan ='18'>
+      <app-common-search  class="gutter-box"
+      [config]="configSearch"
+      [buttionOption] = 'buttionOption'
+      (searched) = "search($event)"
+      ></app-common-search>
+      <p></p>
+  
+  <app-common-table
+      (addForm)="createTplModal($event,tplTitle, tplContent, tplFooter)"
+      [tableTitles] ='tableTitles'
+      [tableData] ='tableData'
+      [pageSize] = 10
+      [keyItem] ='keyItem'
+      > </app-common-table>
+
+      <ng-template #tplTitle>
+          <span>编辑框</span>
+        </ng-template>
+        <template >
+        <ng-template #tplContent>
+        <app-common-form [config]="modalConfig"
+        (submitted) = "formSubmitted($event)"
+      > </app-common-form>
+      </ng-template>
+      </template>
+    </div>
+</div>

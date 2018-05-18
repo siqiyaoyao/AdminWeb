@@ -29,7 +29,7 @@ export class MyAnnounceComponent implements OnInit {
   // 表格
   tableTitles = this.myAnnounceData.tableTitle;
   tableData = this.myAnnounceData.tableData;
-  
+  keyItem ='title'
   
   // 表单
   //modal
@@ -37,8 +37,10 @@ export class MyAnnounceComponent implements OnInit {
   tplModal: NzModalRef; 
 
 
-
-  createTplModal(tplTitle: TemplateRef<{}>, tplContent: TemplateRef<{}>, tplFooter: TemplateRef<{}>):void{
+  test(e){
+    console.log(e);
+  }
+  createTplModal(data,tplTitle: TemplateRef<{}>, tplContent: TemplateRef<{}>, tplFooter: TemplateRef<{}>):void{
     this.tplModal = this.modalService.create({    
       nzTitle: tplTitle,
       nzContent: tplContent,
@@ -46,7 +48,7 @@ export class MyAnnounceComponent implements OnInit {
       nzMaskClosable: false,
       nzClosable: true,
     });
-    console.log(tplContent)
+    console.log(data)
   }
 
   formSubmitted(value:any){

@@ -9,7 +9,7 @@
       </ng-template>
       <nz-tree [(ngModel)]="nodes"
                [nzSearchValue]="searchValue"
-               [nzCheckable]="true"
+               [nzCheckable]="false"
                (nzOnSearchNode)="mouseAction('search',$event)"
                (nzCheckBoxChange)="mouseAction('check',$event)"
                (nzClick)="mouseAction('click', $event)"

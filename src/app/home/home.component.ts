@@ -51,15 +51,36 @@ export class HomeComponent implements OnInit {
           // ]
         }
       ]
-    },{
-      title:"进度管理",
+    }, {
+      title:"系统设置",
+      url:"",
+      icon:"anticon-user",
+      children:[
+        {
+          title:"用户管理",
+          url:"/home/system/user",
+          icon:"anticon-setting",
+          
+        }
+      ]
+    },
+    {
+      title:"组件测试",
       url:"",          
       icon:"anticon-bars",      
       children:[
         {
-          "title":"模型展示",
-          "url":"/home"
-        }
+          "title":"流程图",
+          "url":"/home/flowchart"
+        },
+        {
+          "title":"角色管理",
+          "url":"/home/role"
+        },
+        {
+          "title":"测试",
+          "url":"/home/tree"
+        },
       ]
     },{
       title:"进度管理",

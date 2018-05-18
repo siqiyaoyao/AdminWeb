@@ -47,7 +47,7 @@ export class RoleControlComponent implements OnInit {
   mouseAction(name: string, e: any): void {
     
     if(name =="click" ){
-      console.log(e.node);    
+      console.log(e);    
       this._clickNodes(e);
     }
     if(name =="check" && !e.node.isChecked){

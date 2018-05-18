@@ -6,10 +6,11 @@
 <p></p>
 
 <app-common-table
-(addForm)="createTplModal(tplTitle, tplContent, tplFooter)"
+(addForm)="createTplModal($event,tplTitle, tplContent, tplFooter)"
 [tableTitles] ='tableTitles'
 [tableData] ='tableData'
 [pageSize] = 10
+[keyItem] ='keyItem'
 > </app-common-table>
 
 <ng-template #tplTitle>
