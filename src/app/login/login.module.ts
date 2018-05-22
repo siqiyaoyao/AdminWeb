@@ -5,14 +5,17 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
+
 @NgModule({
   imports: [
     CommonModule,
     NgZorroAntdModule,
     ReactiveFormsModule
+    
   ],
   declarations: [
-    LoginComponent    
+    LoginComponent,
+     
   ]
 })
 export class LoginModule { }

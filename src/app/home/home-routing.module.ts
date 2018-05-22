@@ -1,3 +1,4 @@
+import { ViewerComponent } from './viewer/viewer/viewer.component';
 import { CommonTreeComponent } from './simples/common-tree/common-tree.component';
 import { UserManageComponent } from './pages/user-manage/user-manage.component';
 import { MyAnnounceComponent } from './pages/my-announce/my-announce.component';
@@ -39,6 +40,10 @@ const homeRoutes: Routes = [
     { path: 'oa',
     children:[
       { path: 'myAnnounce', component: MyAnnounceComponent },
+    ]},
+    { path: 'bim',
+    children:[
+      { path: '', component: ViewerComponent },
     ]},
     { path: 'system',
     children:[

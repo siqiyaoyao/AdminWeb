@@ -1,0 +1,142 @@
+{
+  "version": "1.0",
+  "urn": "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YmltYW5nbGUvaW5wdXQucnZ0",
+  "type": "manifest",
+  "progress": "complete",
+  "status": "success",
+  "hasThumbnail": "true",
+  "region": "US",
+  "derivatives": [
+    {
+      "outputType": "svf",
+      "status": "success",
+      "name": "input.rvt",
+      "hasThumbnail": "true",
+      "progress": "complete",
+      "children": [
+        {
+          "type": "geometry",
+          "role": "3d",
+          "status": "success",
+          "name": "3d",
+          "hasThumbnail": "true",
+          "progress": "complete",
+          "guid": "9e5ddf1e-4b64-4ca9-b491-21161b9b22b4",
+          "children": [
+            {
+              "type": "view",
+              "role": "3d",
+              "status": "success",
+              "name": "3d",
+              "progress": "complete",
+              "guid": "e45ebae2-4858-411c-a7de-846714da0201-0007441e",
+              "camera": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "resource",
+              "role": "3d",
+              "mime": "application/autodesk-svf",
+              "urn": "urn:adsk.viewing:fs.file:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YmltYW5nbGUvaW5wdXQucnZ0/3d.svf",
+              "progress": "graphics",
+              "guid": "c924ac8b-1083-444f-9c23-f4b48119208a"
+            },
+            {
+              "type": "resource",
+              "role": "thumbnail",
+              "status": "success",
+              "mime": "image/png",
+              "urn": "urn:adsk.viewing:fs.file:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YmltYW5nbGUvaW5wdXQucnZ0/thumb100.png",
+              "resolution": [
+                100,
+                100
+              ],
+              "guid": "6469704e-30cf-42bf-8d5b-db1fb9cf03f5"
+            },
+            {
+              "type": "resource",
+              "role": "thumbnail",
+              "status": "success",
+              "mime": "image/png",
+              "urn": "urn:adsk.viewing:fs.file:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YmltYW5nbGUvaW5wdXQucnZ0/thumb200.png",
+              "resolution": [
+                200,
+                200
+              ],
+              "guid": "a42b1cc3-89af-475f-bab1-50d7a10ef73e"
+            },
+            {
+              "type": "resource",
+              "role": "thumbnail",
+              "status": "success",
+              "mime": "image/png",
+              "urn": "urn:adsk.viewing:fs.file:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YmltYW5nbGUvaW5wdXQucnZ0/thumb400.png",
+              "resolution": [
+                400,
+                400
+              ],
+              "guid": "038c1666-04c3-4239-8a06-dfc265ddb978"
+            }
+          ],
+          "viewableID": "e45ebae2-4858-411c-a7de-846714da0201-0007441e"
+        }
+      ]
+    },
+    {
+      "outputType": "thumbnail",
+      "status": "success",
+      "progress": "complete",
+      "children": [
+        {
+          "type": "resource",
+          "role": "thumbnail",
+          "status": "success",
+          "mime": "image/png",
+          "urn": "urn:adsk.viewing:fs.file:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YmltYW5nbGUvaW5wdXQucnZ0/thumb100.png",
+          "resolution": [
+            100,
+            100
+          ],
+          "guid": "fe922d64-7b9b-4ba7-a378-4faee6d2a903"
+        },
+        {
+          "type": "resource",
+          "role": "thumbnail",
+          "status": "success",
+          "mime": "image/png",
+          "urn": "urn:adsk.viewing:fs.file:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YmltYW5nbGUvaW5wdXQucnZ0/thumb200.png",
+          "resolution": [
+            200,
+            200
+          ],
+          "guid": "b4161e0c-40d3-4240-b781-f7f9caf9e946"
+        },
+        {
+          "type": "resource",
+          "role": "thumbnail",
+          "status": "success",
+          "mime": "image/png",
+          "urn": "urn:adsk.viewing:fs.file:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YmltYW5nbGUvaW5wdXQucnZ0/thumb400.png",
+          "resolution": [
+            400,
+            400
+          ],
+          "guid": "ac165bcd-9e82-4f0f-8cc0-b404b64332ff"
+        }
+      ]
+    }
+  ]
+}

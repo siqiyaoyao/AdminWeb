@@ -20,6 +20,7 @@
       "prefix": "app",
       "styles": [
         "styles.less"
+       
       ],
       "scripts": [
         "../node_modules/@antv/g2/dist/g2.min.js",

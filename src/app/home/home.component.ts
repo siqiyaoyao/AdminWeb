@@ -83,6 +83,17 @@ export class HomeComponent implements OnInit {
         },
       ]
     },{
+      title:"BIM演示",
+      url:"",
+      icon:"anticon-dot-chart",       
+      children:[
+        {
+          "title":"模型展示",
+          "url":"/home/bim"
+        }
+      ]
+    },
+    {
       title:"进度管理",
       url:"",
       icon:"anticon-dot-chart",       
