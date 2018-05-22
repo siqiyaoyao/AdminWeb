@@ -1,0 +1,32 @@
+<!-- <nz-carousel nzAutoPlay =false>
+  <div nz-carousel-content *ngFor="let index of array"><p>{{index}}</p>
+    <div>{{index}}<div>
+        <nz-card style="width:300px;">
+            <p>Card content</p>
+            <p>Card content</p>
+            <p>Card content</p>
+          </nz-card>
+  
+  </div>
+</nz-carousel> -->
+<nz-carousel nzAutoPlay >
+    <div nz-carousel-content *ngFor="let index of array"  >
+      <!-- <div>{{index}}<div> -->
+        <div nz-row nzGutter="24">
+          <div nz-col class="gutter-row" nzSpan="6">
+          <nz-card style="width:300px; height:300px" >
+              <p>Card {{index}}</p>
+              <p>Card content</p>
+              <p>Card content</p>
+            </nz-card>
+          </div>
+          <div nz-col class="gutter-row" nzSpan="6">
+            <nz-card style="width:300px; height:300px" z-col class="gutter-row" nzSpan="6">
+                <p>Card2 content</p>
+                <p>Card2 content</p>
+                <p>Card2 content</p>
+              </nz-card>
+          </div>
+        </div>
+    </div>
+  </nz-carousel>

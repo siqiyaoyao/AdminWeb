@@ -34,6 +34,7 @@ import { MyAnnounceComponent } from './pages/my-announce/my-announce.component';
 import { CommonTreeComponent } from './simples/common-tree/common-tree.component';
 import { UserManageComponent } from './pages/user-manage/user-manage.component';
 import { ViewerComponent } from './viewer/viewer/viewer.component';
+import { CarouselComponent } from './simples/carousel/carousel.component';
 
 
 
@@ -81,6 +82,7 @@ import { ViewerComponent } from './viewer/viewer/viewer.component';
     CommonTreeComponent,
     UserManageComponent,
     ViewerComponent,
+    CarouselComponent,
 
  
 

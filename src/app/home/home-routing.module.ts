@@ -1,3 +1,4 @@
+import { CarouselComponent } from './simples/carousel/carousel.component';
 import { ViewerComponent } from './viewer/viewer/viewer.component';
 import { CommonTreeComponent } from './simples/common-tree/common-tree.component';
 import { UserManageComponent } from './pages/user-manage/user-manage.component';
@@ -35,6 +36,7 @@ const homeRoutes: Routes = [
         { path: 'grid', component: CommonGridComponent },
         { path: 'form', component: CommonFormComponent },
         { path: 'tree', component: CommonTreeComponent },
+        { path: 'carousel', component: CarouselComponent },
       ],
     },
     { path: 'oa',

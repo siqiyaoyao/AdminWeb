@@ -79,7 +79,7 @@ export class HomeComponent implements OnInit {
         },
         {
           "title":"测试",
-          "url":"/home/tree"
+          "url":"/home/carousel"
         },
       ]
     },{
