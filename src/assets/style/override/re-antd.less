@@ -1,0 +1,40 @@
+::-webkit-scrollbar {  /* 滚动条整体部分 */
+    width:4px;
+    margin-right:2px;
+    background: rgba(221, 221, 221, 0.44);
+}
+
+.node-container{
+    width: 100%;
+    height: 100%;
+    min-width: 150px;
+    min-height: 60px;
+    border: 1px solid #999;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .node-container .node-container-title{
+    color: white;
+    padding-left: 10px;
+    line-height: 48px;
+    height: 70%;
+    width: 100%;
+  }
+  .node-container .node-container-success{
+    background: #228ACC;
+  }
+  .node-container .node-container-fail{
+    background: #FF0030;
+  }
+  .node-container .node-container-list{
+    background: white;
+    padding-left: 10px;
+    height: 100%;
+    line-height: 40px;
+  }
+  .node-container .node-delete{
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    z-index: 10; /* 使得该元素z层级大于最上层canvas */
+  }

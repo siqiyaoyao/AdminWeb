@@ -1,3 +1,4 @@
+import { viewerData } from './models/viewerData';
 import { myAnnounceData } from './models/myAnnounceData';
 import { RoleTree } from './models/tree.mode';
 import { Flow } from './models/flow.mode';
@@ -103,7 +104,8 @@ import { CarouselComponent } from './simples/carousel/carousel.component';
    Flow,
    RoleTree,
    //测试数据
-   myAnnounceData
+   myAnnounceData,
+   viewerData
   ]
 })
 export class HomeModule { }

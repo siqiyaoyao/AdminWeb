@@ -2,20 +2,35 @@
 <!-- <div id="MyViewerDiv"></div> -->
 <div #viewerContainer class="viewer"></div>
 <div class="i-chart">
-    <div id="mountNode" style="position:absolute;right:20px;top:100px; z-index:1001">
-        <nz-card style="width:300px; height:300px" z-col class="gutter-row" nzSpan="6">
-            <p>Card2 content</p>
-            <p>Card2 content</p>
-            <p>Card2 content</p>
-          </nz-card>
+    <div id="mountNode" style="position:absolute;right:100px;top:100px; z-index:1001; width:300px; height:300px">
+        <nz-collapse [nzBordered]="false">
+            <nz-collapse-panel [nzHeader]="ptitles[0].title" >
+                <app-common-tree
+                [config]="treeConfig"
+                [isCheckBox] = true
+                (mouseActionExpand) ="expand($event)"
+                (mouseActionClick) = "click($event)"
+                (mouseActionCheck) = "checkNodes($event)"
+                ></app-common-tree>
+              <!-- <p>{{panel.name}} content</p> -->
+            </nz-collapse-panel>
+            <nz-collapse-panel [nzHeader]="ptitles[1].title"  >
+                <button nz-button (click)="loadModels()">加载</button>
+                <button nz-button (click)="loadModels2()">加载2</button>
+                <button nz-button (click)="globalLoad()">测试</button>
+            </nz-collapse-panel>
+          </nz-collapse>
     </div>  
   </div>
-  <div class="i-chart">
+  <!-- <div class="i-chart">
     <div id="mountNode2" style="position:absolute;right:20px;top:430px;z-index:1001">
         <nz-card style="width:300px; height:300px" z-col class="gutter-row" nzSpan="6">
             <p>Card2 content</p>
             <p>Card2 content</p>
             <p>Card2 content</p>
+            <button nz-button (click)="loadModels()">加载</button>
+            <button nz-button (click)="loadModels2()">加载2</button>
+            <button nz-button (click)="globalLoad()">测试</button>
           </nz-card>
     </div>  
-  </div>
+  </div> -->

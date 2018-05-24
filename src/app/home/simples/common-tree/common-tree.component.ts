@@ -15,8 +15,8 @@ import { NzTreeNode } from 'ng-zorro-antd';
 export class CommonTreeComponent implements OnInit {
   @Output() searchValue;
   @Output() nodes;
-  @Input() config:Array<Itree> 
-  @Input() isCheckBox
+  @Input() config:Array<Itree>  // 原始数据
+  @Input() isCheckBox // 是否有选择框
  
   @Output() mouseActionClick:EventEmitter<any> = new EventEmitter<any>(); 
   @Output() mouseActionExpand:EventEmitter<any> = new EventEmitter<any>(); 
@@ -30,7 +30,7 @@ export class CommonTreeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    //this.isCheckBox=true;
+   //this.isCheckBox=true;
     
     if(this.config){
       let mapData = Observable.from(this.config).map(x=>{

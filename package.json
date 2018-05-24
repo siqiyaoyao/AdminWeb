@@ -25,8 +25,10 @@
     "@antv/g2": "^3.0.8",
     "@antv/g6": "^1.2.8",
     "core-js": "^2.4.1",
+    "d3": "^5.4.0",
     "ng-zorro-antd": "^0.7.0",
     "rxjs": "^5.5.6",
+    "three": "^0.92.0",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
