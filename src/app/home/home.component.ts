@@ -1,5 +1,5 @@
 import { AuthService } from './../services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,TemplateRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,17 +19,15 @@ import { Router } from '@angular/router';
       padding: 20px;
     }
     :host ::ng-deep .logo{
-      width:200px;
-      height:60px;
-      background-color:#454545;
-      color:#fff;
-      font-size:26px;
-      line-height:60px;
-      text-align:center;
-    }
+      height: 32px;
+      background: rgba(255, 255, 255, .2);
+      margin: 16px; 
+    }    
   `]
 })
 export class HomeComponent implements OnInit {
+
+  isCollapsed = false;
 
   show:boolean = true;
   accountName:string;

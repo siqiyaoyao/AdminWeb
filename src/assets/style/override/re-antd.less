@@ -38,3 +38,24 @@
     right: 4px;
     z-index: 10; /* 使得该元素z层级大于最上层canvas */
   }
+
+  /*******************************重写侧边栏样式***********************************************/
+  .ant-menu-inline-collapsed>div>.ant-menu-item .anticon+span,
+  .ant-menu-inline-collapsed>div>.ant-menu-submenu>.ant-menu-submenu-title .anticon+span{
+    max-width: 0;
+    display: inline-block;
+    opacity: 0;
+  }
+  .ant-menu-inline-collapsed>div>.ant-menu-submenu>.ant-menu-submenu-title .ant-menu-submenu-arrow{
+    display:none;
+  }
+  .ant-menu-inline-collapsed>div>.ant-menu-submenu>.ant-menu-submenu-title,
+  .ant-menu-dark.ant-menu-vertical .ant-menu-item{
+    left: 0;
+    text-overflow: clip;
+    padding: 0 32px!important;
+  }
+  .ant-menu-dark.ant-menu-submenu-popup{
+      background: rgba(86, 139, 160, 0.88)
+  }
+  /*******************************重写侧边栏样式***********************************************/  
