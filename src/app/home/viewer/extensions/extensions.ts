@@ -53,6 +53,7 @@ export class ExtensionLoadedEventArgs extends ExtensionLoadedUnloadedEventArgs {
     // resister extension 在viewer内注册extension
     public static registerExtension(extension: Object) {
       Autodesk.Viewing.theExtensionManager.registerExtension(this.extensionName, extension);
+      console.log(this.extensionName);
     }
   
     public static unregisterExtension() {
@@ -119,24 +120,32 @@ export class ExtensionLoadedEventArgs extends ExtensionLoadedUnloadedEventArgs {
   
     /** Cast Viewer event args to class */
     protected castArgs(args: any): any {
+      
+     // console.log(args);
       if (Array.isArray(args)) {
+        //console.log("Arrargs");
         return args.map(this.castArgs);
       }
   
       if (!args || typeof args !== 'object' || !args.hasOwnProperty('type')) {
+      //  console.log("!args");
         // Can't cast this object
         return args;
       }
   
       // Create new object of appropriate type
       const clazz = this.eventArgsTypeMap[args.type];
-      const typedItem = Object.create(clazz.prototype);
+     // console.log(clazz);
+      if(clazz){
+        const typedItem = Object.create(clazz.prototype);
   
-      // Cast any properties
-      for (const k of Object.keys(args)) {
-        typedItem[k] = this.castArgs(args[k]);
+        // Cast any properties
+        for (const k of Object.keys(args)) {
+          typedItem[k] = this.castArgs(args[k]);
+        }
+    
+        return typedItem;
       }
-  
-      return typedItem;
+    
     }
   }

@@ -1,9 +1,22 @@
+
+
 import { viewerData } from './../../models/viewerData';
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/takeUntil';
 import * as THREE from 'three';
+
+import { AggregationSelectionChangedEventArgs,
+  SelectionChangedEventArgs,
+  FitToViewEventArgs,
+  ExtensionLoadedUnloadedEventArgs,
+  ExtensionLoadedEventArgs,
+  ExtensionUnloadedEventArgs,
+  ViewerEventArgs
+ } from './../extensions/extensions';
+
+ import { BasicExtension } from './../extensions/basic-extension.service';
 
 declare var Autodesk : any;
 @Component({
@@ -23,6 +36,8 @@ export class ViewerComponent implements OnInit,OnDestroy {
     globalOffset:{x:0,y:0,z:0},
   };
   
+  // extension
+  private basicExt: BasicExtension;
 
 
   @ViewChild('viewerContainer') viewerContainer: any; 
@@ -58,6 +73,7 @@ export class ViewerComponent implements OnInit,OnDestroy {
           //this.fitModelToView(model);
          // console.log(this.viewerApp.impl)
         });
+        this.viewerApp.loadExtension("BasicExtension");
       }
 
       if(!e.node.origin.checked){
@@ -85,18 +101,24 @@ export class ViewerComponent implements OnInit,OnDestroy {
   }
 
   initialViewer(){
+    const extName = this.registerBasicExtension();
+    console.log(extName);
+    const config = this.addBasicExtensionConfig(extName);
     let options = {env: 'Local'};
     Autodesk.Viewing.Initializer(options, () => {
       this.viewerApp = new Autodesk.Viewing.Private.GuiViewer3D(this.viewerContainer.nativeElement,this.viewerOptions);
       this.viewerApp.initialize();
-      //this.viewerApp.loadExtension();
+      
     })
+
+
   }
 
  
   loadModels(){
     
     this.viewerApp.loadModel('../assets/models/5/1联_nwd/3d.svf',this.loadOptions);
+
   }
   loadModels2(){
   
@@ -106,8 +128,48 @@ export class ViewerComponent implements OnInit,OnDestroy {
    //this.viewerApp.getData()
   }
    
+  private registerBasicExtension():string{
+    BasicExtension.registerExtension(this.extensionLoaded.bind(this));
+    return BasicExtension.extensionName;
+  }
 
+  private extensionLoaded(ext:BasicExtension){
+    this.basicExt =ext;
+    ext.viewerEvents
+      .takeUntil(this.unsubscribe)
+      .subscribe((item:ViewerEventArgs)=>{
+        this.log(item);
+       
+      })
+  }
   
+  private unregisterBasicExtension() {
+    BasicExtension.unregisterExtension();
+    this.basicExt = null;
+  }
+
+  private addBasicExtensionConfig(extName: string): any {
+    const config: any = Object.assign(
+      {},
+     // this.viewerOptions.viewerConfig,
+      { extensions: [] },
+    );
+
+    // We will always load our basic extension with any others specified by the caller
+    // if (this.viewerOptions.viewerConfig && this.viewerOptions.viewerConfig.extensions) {
+    //   config.extensions = [...this.viewerOptions.viewerConfig.extensions, extName];
+    // } else {
+    //   config.extensions = [extName];
+    // }
+    config.extensions = [extName];
+
+    return config;
+  }
+
+  private log(message?: any, ...optionalParams: any[]) {
+    //if (!this.showDebugMessages) return;
+    console.log(message, optionalParams);
+  }
 
   ngOnDestroy(){ // 里面页面的后续处理
     //清空拓展控件
