@@ -30,6 +30,7 @@ export class BasicExtension extends Extension{
     Autodesk.Viewing.RESET_EVENT,
     Autodesk.Viewing.SELECTION_CHANGED_EVENT,
     Autodesk.Viewing.SHOW_EVENT,
+    Autodesk.Viewing.AGGREGATE_SELECTION_CHANGED_EVENT,
   ];
 
   public static registerExtension(callback: (ext: BasicExtension) => void) {

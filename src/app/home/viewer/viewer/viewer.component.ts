@@ -1,5 +1,3 @@
-
-
 import { viewerData } from './../../models/viewerData';
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
@@ -17,6 +15,8 @@ import { AggregationSelectionChangedEventArgs,
  } from './../extensions/extensions';
 
  import { BasicExtension } from './../extensions/basic-extension.service';
+ import { normalExtension } from './../extensions/normalExtension';
+import { TestExtService } from '../extensions/test-ext.service';
 
 declare var Autodesk : any;
 @Component({
@@ -38,7 +38,11 @@ export class ViewerComponent implements OnInit,OnDestroy {
   
   // extension
   private basicExt: BasicExtension;
-
+  
+  // switch
+  private s1 = false;
+  private s2 = false;
+  private s3 = false;
 
   @ViewChild('viewerContainer') viewerContainer: any; 
   constructor(
@@ -49,7 +53,7 @@ export class ViewerComponent implements OnInit,OnDestroy {
     // panel
     private ptitles =[
       {title:"模型选择"},
-      {title:"模型操作"}
+      {title:"面板控制"}
     ]
 
     // tree
@@ -73,7 +77,7 @@ export class ViewerComponent implements OnInit,OnDestroy {
           //this.fitModelToView(model);
          // console.log(this.viewerApp.impl)
         });
-        this.viewerApp.loadExtension("BasicExtension");
+       // this.viewerApp.loadExtension("BasicExtension");
       }
 
       if(!e.node.origin.checked){
@@ -102,13 +106,16 @@ export class ViewerComponent implements OnInit,OnDestroy {
 
   initialViewer(){
     const extName = this.registerBasicExtension();
+    normalExtension.register();
+
     console.log(extName);
     const config = this.addBasicExtensionConfig(extName);
     let options = {env: 'Local'};
     Autodesk.Viewing.Initializer(options, () => {
       this.viewerApp = new Autodesk.Viewing.Private.GuiViewer3D(this.viewerContainer.nativeElement,this.viewerOptions);
       this.viewerApp.initialize();
-      
+      //this.viewerApp.loadExtension("normalExtension");
+      this.viewerApp.loadExtension("BasicExtension");
     })
 
 
@@ -191,6 +198,12 @@ export class ViewerComponent implements OnInit,OnDestroy {
     // 清空树数据
 
 
+  }
+
+  // switch
+  switchChange(s){
+    s =!s;
+    console.log(s)
   }
 
  

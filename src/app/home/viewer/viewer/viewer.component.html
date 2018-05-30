@@ -15,22 +15,60 @@
               <!-- <p>{{panel.name}} content</p> -->
             </nz-collapse-panel>
             <nz-collapse-panel [nzHeader]="ptitles[1].title"  >
-                <button nz-button (click)="loadModels()">加载</button>
+                <!-- <button nz-button (click)="loadModels()">加载</button>
                 <button nz-button (click)="loadModels2()">加载2</button>
-                <button nz-button (click)="globalLoad()">测试</button>
+                <button nz-button (click)="globalLoad()">测试</button> -->
+                <div  nz-row>
+                    <div nz-col nzSpan="12">数据面板1</div>
+                    <nz-switch  [ngModel]="s1" nzCheckedChildren="开" nzUnCheckedChildren="关" (click)="switchChange(s1)" nz-col nzSpan="12"></nz-switch>
+                </div>
+                <br>
+                <div  nz-row>
+                    <div nz-col nzSpan="12">数据面板2</div>
+                    <nz-switch  [ngModel]="s2" nzCheckedChildren="开" nzUnCheckedChildren="关" (click)="switchChange(s2)" nz-col nzSpan="12"></nz-switch>
+                </div>
+                <br>
+                <div  nz-row>
+                    <div nz-col nzSpan="12">数据面板2</div>
+                    <nz-switch  [ngModel]="s3" nzCheckedChildren="开" nzUnCheckedChildren="关" (click)="switchChange(s3)" nz-col nzSpan="12"></nz-switch>
+                </div>
             </nz-collapse-panel>
           </nz-collapse>
     </div>  
   </div>
-  <!-- <div class="i-chart">
-    <div id="mountNode2" style="position:absolute;right:20px;top:430px;z-index:1001">
-        <nz-card style="width:300px; height:300px" z-col class="gutter-row" nzSpan="6">
+  <div class="i-chart">
+    <div id="mountNode2" style="position:absolute;right:1200px;top:100px;z-index:1001">
+        <nz-card style="width:320px; height:180px" z-col class="gutter-row" nzSpan="6">
             <p>Card2 content</p>
             <p>Card2 content</p>
             <p>Card2 content</p>
-            <button nz-button (click)="loadModels()">加载</button>
+            <!-- <button nz-button (click)="loadModels()">加载</button>
             <button nz-button (click)="loadModels2()">加载2</button>
-            <button nz-button (click)="globalLoad()">测试</button>
+            <button nz-button (click)="globalLoad()">测试</button> -->
           </nz-card>
     </div>  
-  </div> -->
+  </div>
+  <div class="i-chart">
+    <div id="mountNode3" style="position:absolute;right:850px;top:100px;z-index:1001">
+        <nz-card style="width:320px; height:180px" z-col class="gutter-row" nzSpan="6">
+            <p>Card2 content</p>
+            <p>Card2 content</p>
+            <p>Card2 content</p>
+            <!-- <button nz-button (click)="loadModels()">加载</button>
+            <button nz-button (click)="loadModels2()">加载2</button>
+            <button nz-button (click)="globalLoad()">测试</button> -->
+          </nz-card>
+    </div>  
+  </div>
+  <div class="i-chart">
+    <div id="mountNode4" style="position:absolute;right:500px;top:100px;z-index:1001">
+        <nz-card style="width:320px; height:180px" z-col class="gutter-row" nzSpan="6">
+            <p>Card2 content</p>
+            <p>Card2 content</p>
+            <p>Card2 content</p>
+            <!-- <button nz-button (click)="loadModels()">加载</button>
+            <button nz-button (click)="loadModels2()">加载2</button>
+            <button nz-button (click)="globalLoad()">测试</button> -->
+          </nz-card>
+    </div>  
+  </div>

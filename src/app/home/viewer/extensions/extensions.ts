@@ -58,6 +58,8 @@ export class ExtensionLoadedEventArgs extends ExtensionLoadedUnloadedEventArgs {
   
     public static unregisterExtension() {
       Autodesk.Viewing.theExtensionManager.unregisterExtension(this.extensionName);
+
+      console.log("unregisterExtension");
     }
   
     constructor(viewer,
