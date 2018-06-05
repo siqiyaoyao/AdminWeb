@@ -1,3 +1,4 @@
+
 import { viewerData } from './../../models/viewerData';
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
@@ -17,6 +18,7 @@ import { AggregationSelectionChangedEventArgs,
  import { BasicExtension } from './../extensions/basic-extension.service';
  import { normalExtension } from './../extensions/normalExtension';
 import { TestExtService } from '../extensions/test-ext.service';
+import { SampleExtension } from './../extensions/SampleExtension';
 
 declare var Autodesk : any;
 @Component({
@@ -114,8 +116,8 @@ export class ViewerComponent implements OnInit,OnDestroy {
     Autodesk.Viewing.Initializer(options, () => {
       this.viewerApp = new Autodesk.Viewing.Private.GuiViewer3D(this.viewerContainer.nativeElement,this.viewerOptions);
       this.viewerApp.initialize();
-      //this.viewerApp.loadExtension("normalExtension");
-      this.viewerApp.loadExtension("BasicExtension");
+      this.viewerApp.loadExtension("normalExtension");
+      this.viewerApp.loadExtension("SampleExtension");
     })
 
 
@@ -175,7 +177,11 @@ export class ViewerComponent implements OnInit,OnDestroy {
 
   private log(message?: any, ...optionalParams: any[]) {
     //if (!this.showDebugMessages) return;
-    console.log(message, optionalParams);
+    //console.log(message);
+    if(message){
+     // console.log(message)
+    }
+   
   }
 
   ngOnDestroy(){ // 里面页面的后续处理
