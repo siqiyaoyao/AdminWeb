@@ -11,6 +11,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 })
 export class UserManageComponent implements OnInit {
   treeConfig:Array<Itree>;
+  isVisible = false;//
   constructor(
     private RoleTree:RoleTree,
     private  myAnnounceData:myAnnounceData, 
@@ -89,4 +90,19 @@ export class UserManageComponent implements OnInit {
   formSubmitted(value:any){
     console.log(value);
   }
+
+  showModal(e): void {
+    this.isVisible = true;
+  }
+
+  handleOk(): void {
+    console.log('Button ok clicked!');
+    this.isVisible = false;
+  }
+
+  handleCancel(): void {
+    console.log('Button cancel clicked!');
+    this.isVisible = false;
+  }
+
 }

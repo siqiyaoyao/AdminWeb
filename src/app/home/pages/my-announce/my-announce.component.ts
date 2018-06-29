@@ -13,16 +13,11 @@ export class MyAnnounceComponent implements OnInit {
     private  myAnnounceData:myAnnounceData,
     private modalService:NzModalService,
   ) { }
-  ngOnInit() {
-  }
+
   // 搜索框
   configSearch = this.myAnnounceData.config;
-  buttionOption ={
-    add:false,
-    delete:false,
-    renew:true
-  }
-  search(value){
+  buttionOption =this.myAnnounceData.searchButtons; 
+  searchBtnNotify(value){
     console.log(value)
   }
 
@@ -55,4 +50,8 @@ export class MyAnnounceComponent implements OnInit {
     console.log(value);
   }
 
+  ngOnInit() {
+    console.log("this.buttionOption");
+    console.log(this.buttionOption[0]);
+  }
 }

@@ -17,11 +17,24 @@
   
   <app-common-table
       (addForm)="createTplModal($event,tplTitle, tplContent, tplFooter)"
+      (onClickTest)="showModal($event)"
       [tableTitles] ='tableTitles'
+
       [tableData] ='tableData'
       [pageSize] = 10
       [keyItem] ='keyItem'
       > </app-common-table>
+
+      <nz-modal [(nzVisible)]="isVisible" nzTitle="The first Modal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+        <app-common-form [config]="modalConfig"
+        (submitted) = "formSubmitted($event)"
+      > </app-common-form>
+      </nz-modal>
+      <nz-modal [(nzVisible)]="isVisible" nzTitle="The first Modal111" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+        <app-common-form [config]="modalConfig"
+        (submitted) = "formSubmitted($event)"
+      > </app-common-form>
+      </nz-modal>
 
       <ng-template #tplTitle>
           <span>编辑框</span>

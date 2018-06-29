@@ -23,6 +23,26 @@ export class myAnnounceData {
             placeholder: '选择类型',
             temp:[]
           },
+          
+    ]
+
+    public searchButtons = [
+      
+              {
+                key: 'ADD',
+                icon: 'pencil',
+                title: '编辑',
+                className: 'primary',
+                size: 'small'
+              }, {
+                key: 'DELETE',
+                icon: 'trash-o',
+                title: '删除',
+                className: 'danger',
+                size: 'small'
+              }
+           
+    
     ]
 
     public tableTitle = [

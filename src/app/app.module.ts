@@ -12,14 +12,14 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginModule } from './login/login.module';
 import { GuardService } from './services/guard.service';
-import { PrototypeComponent } from './prototype/prototype.component';
+//import { PrototypeComponent } from './prototype/prototype.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PrototypeComponent,
+    //PrototypeComponent,
     
   ],
   imports: [

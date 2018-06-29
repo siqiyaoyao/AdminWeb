@@ -1,3 +1,4 @@
+import { PrototypeComponent } from './../prototype/prototype.component';
 import { viewerData } from './models/viewerData';
 import { myAnnounceData } from './models/myAnnounceData';
 import { RoleTree } from './models/tree.mode';
@@ -84,6 +85,7 @@ import { CarouselComponent } from './simples/carousel/carousel.component';
     UserManageComponent,
     ViewerComponent,
     CarouselComponent,
+    PrototypeComponent
 
  
 

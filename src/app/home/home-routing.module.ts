@@ -17,6 +17,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { SidebarComponent } from './sidebar.component';
 import { DemoComponent } from './pages/demo/demo.component';
+import { PrototypeComponent } from '../prototype/prototype.component';
 
 
 const homeRoutes: Routes = [
@@ -53,6 +54,7 @@ const homeRoutes: Routes = [
     ]},
       
     { path: 'demo', component: DemoComponent },
+    { path: 'map', component: PrototypeComponent },
   
     ]
   },

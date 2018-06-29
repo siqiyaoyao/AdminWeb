@@ -108,16 +108,18 @@ export class ViewerComponent implements OnInit,OnDestroy {
 
   initialViewer(){
     const extName = this.registerBasicExtension();
+    const sampleName = this.registSampleExtension();
     normalExtension.register();
 
-    console.log(extName);
+    console.log(sampleName);
     const config = this.addBasicExtensionConfig(extName);
+
     let options = {env: 'Local'};
     Autodesk.Viewing.Initializer(options, () => {
       this.viewerApp = new Autodesk.Viewing.Private.GuiViewer3D(this.viewerContainer.nativeElement,this.viewerOptions);
       this.viewerApp.initialize();
-      this.viewerApp.loadExtension("normalExtension");
-      this.viewerApp.loadExtension("SampleExtension");
+     // this.viewerApp.loadExtension("normalExtension");
+      this.viewerApp.loadExtension("BasicExtension");
     })
 
 
@@ -141,7 +143,12 @@ export class ViewerComponent implements OnInit,OnDestroy {
     BasicExtension.registerExtension(this.extensionLoaded.bind(this));
     return BasicExtension.extensionName;
   }
+  
+  private registSampleExtension():string{
+    SampleExtension.registerExtension(this.extensionLoaded.bind(this));
 
+    return SampleExtension.extensionName;
+  }
   private extensionLoaded(ext:BasicExtension){
     this.basicExt =ext;
     ext.viewerEvents
@@ -177,7 +184,7 @@ export class ViewerComponent implements OnInit,OnDestroy {
 
   private log(message?: any, ...optionalParams: any[]) {
     //if (!this.showDebugMessages) return;
-    //console.log(message);
+    console.log(message);
     if(message){
      // console.log(message)
     }

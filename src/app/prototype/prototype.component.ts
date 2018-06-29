@@ -18,7 +18,7 @@ export class PrototypeComponent implements OnInit {
       map.addControl(new AMap.ToolBar());
     });
     map.setMapStyle('amap://styles/darkblue');
-
+    console.log(map)
     const data = [
       { genre: 'A', sold: 245 },
       { genre: 'B', sold: 115 },

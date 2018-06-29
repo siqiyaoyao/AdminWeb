@@ -13,7 +13,7 @@ registerLocaleData(zh);
 })
 export class CommonTableComponent implements OnInit {
   @Output() addForm:EventEmitter<any> = new EventEmitter<any>();
-
+  @Output() onClickTest:EventEmitter<any> = new EventEmitter<any>();
   @Input() tableTitles;
   @Input() tableData;
   @Input() pageSize;
@@ -70,17 +70,17 @@ export class CommonTableComponent implements OnInit {
  
   }
   add():void{
-    // let objtr = document.createElement('td');
-    // objtr.innerHTML = `
-    // <td>${this.data.name}</td>
-    // `
-    // document.getElementById("1").appendChild(objtr);
+    let objtr = document.createElement('td');
+    objtr.innerHTML = `
+    <button nz-button nzType="primary" (click)="addForm.emit(value)">查看</button>
+    `
+    document.getElementById("1").appendChild(objtr);
   }
  
-  onClickTest(id):void{
-    console.log('bingo')
+  // onClickTest(id):void{
+  //   console.log('bingo')
     
-  }
+  // }
 
   
 
