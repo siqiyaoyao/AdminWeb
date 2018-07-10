@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-declare var Autodesk : any;
+declare var Autodesk: any;
 
 export abstract class ViewerEventArgs {
     target?: any;
-    models?:any;
+    models?: any;
    // target?: Autodesk.Viewing.Viewer3D;
-    //model?: Autodesk.Viewing.ViewerItem;
+    // model?: Autodesk.Viewing.ViewerItem;
     type: string;
     [key: string]: any;
   }
 
 export class AggregationSelectionChangedEventArgs extends ViewerEventArgs {
-    selections:any[];
+    selections: any[];
     type = Autodesk.Viewing.AGGREGATE_SELECTION_CHANGED_EVENT;
 }
 
@@ -42,11 +42,11 @@ export class ExtensionLoadedEventArgs extends ExtensionLoadedUnloadedEventArgs {
   @Injectable()
   // base extension 父类
   export abstract class Extension {
-    public static extensionName: string = '';
-  
-    protected viewer:any = undefined;
+    public static extensionName = '';
+
+    protected viewer: any = undefined;
     protected extOptions: any = undefined;
-  
+
     protected eventArgsTypeMap: { [key: string]: Function } = {};
 
 
@@ -55,32 +55,32 @@ export class ExtensionLoadedEventArgs extends ExtensionLoadedUnloadedEventArgs {
       Autodesk.Viewing.theExtensionManager.registerExtension(this.extensionName, extension);
       console.log(this.extensionName);
     }
-  
+
     public static unregisterExtension() {
       Autodesk.Viewing.theExtensionManager.unregisterExtension(this.extensionName);
 
-      console.log("unregisterExtension");
+      console.log('unregisterExtension');
     }
-  
+
     constructor(viewer,
                 options?) {
       this.viewer = viewer;
       this.extOptions = options;
-  
+
       this.registerEventTypes();
     }
-    
+
     // 加载和卸载extension接口
-    /** Called by Autodesk extension manager when extension is loaded */ 
+    /** Called by Autodesk extension manager when extension is loaded */
     public abstract load(): void;
     /** Called by Autodesk extension manager when extension is unloaded */
     public abstract unload(): void;
-  
+
     /** Register event args types that we will cast to 'proper' objects */
     protected registerEventTypes() {
       // tslint:disable:max-line-length
       this.eventArgsTypeMap[Autodesk.Viewing.AGGREGATE_SELECTION_CHANGED_EVENT] = AggregationSelectionChangedEventArgs;
-      //this.eventArgsTypeMap[Autodesk.Viewing.ANIMATION_READY_EVENT] = AnimationReadyEventArgs;
+      // this.eventArgsTypeMap[Autodesk.Viewing.ANIMATION_READY_EVENT] = AnimationReadyEventArgs;
     //   this.eventArgsTypeMap[Autodesk.Viewing.CAMERA_CHANGE_EVENT] = CameraChangedEventArgs;
     //   this.eventArgsTypeMap[Autodesk.Viewing.CUTPLANES_CHANGE_EVENT] = CutplanesChangedEventArgs;
     //   this.eventArgsTypeMap[Autodesk.Viewing.ESCAPE_EVENT] = EscapeEventArgs;
@@ -119,35 +119,35 @@ export class ExtensionLoadedEventArgs extends ExtensionLoadedUnloadedEventArgs {
     //   this.eventArgsTypeMap[Autodesk.Viewing.VIEWER_UNINITIALIZED] = ViewerUnInitializedEventArgs;
       // tslint:enable:max-line-length
     }
-  
+
     /** Cast Viewer event args to class */
     protected castArgs(args: any): any {
-      
+
      // console.log(args);
       if (Array.isArray(args)) {
-        //console.log("Arrargs");
+        // console.log("Arrargs");
         return args.map(this.castArgs);
       }
-  
+
       if (!args || typeof args !== 'object' || !args.hasOwnProperty('type')) {
       //  console.log("!args");
         // Can't cast this object
         return args;
       }
-  
+
       // Create new object of appropriate type
       const clazz = this.eventArgsTypeMap[args.type];
      // console.log(clazz);
-      if(clazz){
+      if (clazz) {
         const typedItem = Object.create(clazz.prototype);
-  
+
         // Cast any properties
         for (const k of Object.keys(args)) {
           typedItem[k] = this.castArgs(args[k]);
         }
-    
+
         return typedItem;
       }
-    
+
     }
   }

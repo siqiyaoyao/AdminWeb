@@ -1,13 +1,13 @@
 import { OnInit } from '@angular/core';
 import { normalExtension } from './normalExtension';
 import { Extension } from './extensions';
-declare var Autodesk : any;
+declare var Autodesk: any;
 
-export class SampleExtension extends Extension{
-public static extensionName: string = 'SampleExtension';
+export class SampleExtension extends Extension {
+public static extensionName = 'SampleExtension';
 
   public load() {
-    console.log('SampleExtension is loaded')
+    console.log('SampleExtension is loaded');
     // Called when Forge Viewer loads your extension
   }
 

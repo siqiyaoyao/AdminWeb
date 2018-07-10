@@ -20,145 +20,145 @@ import { AggregationSelectionChangedEventArgs,
 import { TestExtService } from '../extensions/test-ext.service';
 import { SampleExtension } from './../extensions/SampleExtension';
 
-declare var Autodesk : any;
+declare var Autodesk: any;
 @Component({
   selector: 'app-viewer',
   templateUrl: './viewer.component.html',
   styleUrls: ['./viewer.component.less']
 })
-export class ViewerComponent implements OnInit,OnDestroy {
+export class ViewerComponent implements OnInit, OnDestroy {
   // viewer 相关数据注册
-  private viewer:any;
-  private viewerApp:any = null;
+  private viewer: any;
+  private viewerApp: any = null;
   private viewerInitialized  = false;
   private unsubscribe: Subject<boolean> = new Subject();
-  private viewerOptions:any = null;
+  private viewerOptions: any = null;
   private loadOptions = {
-    placementTransform: new THREE.Matrix4(), 
-    globalOffset:{x:0,y:0,z:0},
+    placementTransform: new THREE.Matrix4(),
+    globalOffset: {x: 0, y: 0, z: 0},
   };
-  
+
   // extension
   private basicExt: BasicExtension;
-  
+
   // switch
   private s1 = false;
   private s2 = false;
   private s3 = false;
 
-  @ViewChild('viewerContainer') viewerContainer: any; 
+  @ViewChild('viewerContainer') viewerContainer: any;
   constructor(
-    private viewerData:viewerData,
+    private viewerData: viewerData,
   ) { }
 
     // components
     // panel
-    private ptitles =[
-      {title:"模型选择"},
-      {title:"面板控制"}
-    ]
+    private ptitles = [
+      {title: '模型选择'},
+      {title: '面板控制'}
+    ];
 
     // tree
     private treeConfig = this.viewerData.models;
     private checkTree = true;
-    expand(){
+    expand() {
 
     }
-    click(){
+    click() {
     }
-    checkNodes(e){
-   
-      e.node.origin.checked =!e.node.origin.checked;
+    checkNodes(e) {
 
-      if(e.node.origin.checked){
-        //console.log(e.node.origin);
+      e.node.origin.checked = !e.node.origin.checked;
+
+      if (e.node.origin.checked) {
+        // console.log(e.node.origin);
         console.log(e.node.origin.url);
-        this.viewerApp.loadModel(e.node.origin.url,this.loadOptions,(model)=>{
-          //model.guid = this.guid();
+        this.viewerApp.loadModel(e.node.origin.url, this.loadOptions, (model) => {
+          // model.guid = this.guid();
           e.node.origin.viewerModel = model;
-          //this.fitModelToView(model);
+          // this.fitModelToView(model);
          // console.log(this.viewerApp.impl)
         });
        // this.viewerApp.loadExtension("BasicExtension");
       }
 
-      if(!e.node.origin.checked){
-        console.log( e.node.origin.viewerModel)
-        this.viewerApp.impl.unloadModel( e.node.origin.viewerModel)
-      }         
+      if (!e.node.origin.checked) {
+        console.log( e.node.origin.viewerModel);
+        this.viewerApp.impl.unloadModel( e.node.origin.viewerModel);
+      }
     }
 
     // 获得模型数据
-    fitModelToView(model){
-      let instanceTree = model.getData().instanceTree;
+    fitModelToView(model) {
+      const instanceTree = model.getData().instanceTree;
       console.log(model);
       console.log( model.getData().urn);
       console.log(model.getData());
-      if(instanceTree){
-        let rootId = instanceTree.getRootId();
+      if (instanceTree) {
+        const rootId = instanceTree.getRootId();
         this.viewerApp.fitToView([rootId], model);
       }
     }
-  
+
 
   ngOnInit() {
 
     this.initialViewer();
   }
 
-  initialViewer(){
+  initialViewer() {
     const extName = this.registerBasicExtension();
     const sampleName = this.registSampleExtension();
-    normalExtension.register();
+     normalExtension.register();
 
     console.log(sampleName);
     const config = this.addBasicExtensionConfig(extName);
 
-    let options = {env: 'Local'};
+    const options = {env: 'Local'};
     Autodesk.Viewing.Initializer(options, () => {
-      this.viewerApp = new Autodesk.Viewing.Private.GuiViewer3D(this.viewerContainer.nativeElement,this.viewerOptions);
+      this.viewerApp = new Autodesk.Viewing.Private.GuiViewer3D(this.viewerContainer.nativeElement, this.viewerOptions);
       this.viewerApp.initialize();
-     // this.viewerApp.loadExtension("normalExtension");
-      this.viewerApp.loadExtension("BasicExtension");
-    })
+      this.viewerApp.loadExtension('normalExtension');
+      this.viewerApp.loadExtension('BasicExtension');
+    });
 
 
   }
 
- 
-  loadModels(){
-    
-    this.viewerApp.loadModel('../assets/models/5/1联_nwd/3d.svf',this.loadOptions);
+
+  loadModels() {
+
+    this.viewerApp.loadModel('../assets/models/5/1联_nwd/3d.svf', this.loadOptions);
 
   }
-  loadModels2(){
-  
-    
-    this.viewerApp.loadModel('../assets/models/5/2联_nwd/3d.svf',this.loadOptions);
-    //this.viewerApp.loadModel('../assets/models/color/0/0.svf',loadOptions);
-   //this.viewerApp.getData()
+  loadModels2() {
+
+
+    this.viewerApp.loadModel('../assets/models/5/2联_nwd/3d.svf', this.loadOptions);
+    // this.viewerApp.loadModel('../assets/models/color/0/0.svf',loadOptions);
+   // this.viewerApp.getData()
   }
-   
-  private registerBasicExtension():string{
+
+  private registerBasicExtension(): string {
     BasicExtension.registerExtension(this.extensionLoaded.bind(this));
     return BasicExtension.extensionName;
   }
-  
-  private registSampleExtension():string{
+
+  private registSampleExtension(): string {
     SampleExtension.registerExtension(this.extensionLoaded.bind(this));
 
     return SampleExtension.extensionName;
   }
-  private extensionLoaded(ext:BasicExtension){
-    this.basicExt =ext;
+  private extensionLoaded(ext: BasicExtension) {
+    this.basicExt = ext;
     ext.viewerEvents
       .takeUntil(this.unsubscribe)
-      .subscribe((item:ViewerEventArgs)=>{
+      .subscribe((item: ViewerEventArgs) => {
         this.log(item);
-       
-      })
+
+      });
   }
-  
+
   private unregisterBasicExtension() {
     BasicExtension.unregisterExtension();
     this.basicExt = null;
@@ -183,20 +183,20 @@ export class ViewerComponent implements OnInit,OnDestroy {
   }
 
   private log(message?: any, ...optionalParams: any[]) {
-    //if (!this.showDebugMessages) return;
+    // if (!this.showDebugMessages) return;
     console.log(message);
-    if(message){
+    if (message) {
      // console.log(message)
     }
-   
+
   }
 
-  ngOnDestroy(){ // 里面页面的后续处理
-    //清空拓展控件
-    //this.unregisterBasicExtension();
+  ngOnDestroy() { // 里面页面的后续处理
+    // 清空拓展控件
+    // this.unregisterBasicExtension();
 
     // 清空viewer
-    if(this.viewerApp){
+    if (this.viewerApp) {
       const viewer = this.viewerApp;
       viewer.tearDown();
       viewer.uninitialize();
@@ -214,12 +214,12 @@ export class ViewerComponent implements OnInit,OnDestroy {
   }
 
   // switch
-  switchChange(s){
-    s =!s;
-    console.log(s)
+  switchChange(s) {
+    s = !s;
+    console.log(s);
   }
 
- 
+
   // private unregisterBasicExtension() {
   //   BasicExtension.unregisterExtension();
   //   this.basicExt = null;

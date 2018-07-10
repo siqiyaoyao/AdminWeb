@@ -3,14 +3,14 @@ import { Observable } from 'rxjs/Observable';
 import { fromEvent } from 'rxjs/observable/fromEvent';
 import { merge } from 'rxjs/observable/merge';
 import 'rxjs/add/operator/map';
-import {Extension,ViewerEventArgs } from './extensions';
+import {Extension, ViewerEventArgs } from './extensions';
 
-declare var Autodesk : any;
+declare var Autodesk: any;
 
 @Injectable()
-export class BasicExtension extends Extension{
-  public static extensionName: string = 'BasicExtension';
-  public static debugMessages: boolean = false;
+export class BasicExtension extends Extension {
+  public static extensionName = 'BasicExtension';
+  public static debugMessages = false;
 
   private static callback: (ext: BasicExtension) => void = null;
 
@@ -39,18 +39,18 @@ export class BasicExtension extends Extension{
   }
 
 
-  
+
 
   public load() {
      this.events.forEach((eventName) => {
       const obs = fromEvent(this.viewer, eventName).map(args => this.castArgs(args));
       this.eventStreams.push(obs);
     });
-    console.log("extensions load")
+    console.log('extensions load');
     this.viewerEvents = merge(...this.eventStreams);
 
-    if (BasicExtension.debugMessages) console.log(BasicExtension.extensionName, 'loaded!');
-    if (BasicExtension.callback) BasicExtension.callback(this);
+    if (BasicExtension.debugMessages) { console.log(BasicExtension.extensionName, 'loaded!'); }
+    if (BasicExtension.callback) { BasicExtension.callback(this); }
     return true;
   }
 
@@ -58,7 +58,7 @@ export class BasicExtension extends Extension{
     this.eventStreams = [];
     this.viewerEvents = undefined;
 
-    if (BasicExtension.debugMessages) console.log(BasicExtension.extensionName, 'unloaded!');
+    if (BasicExtension.debugMessages) { console.log(BasicExtension.extensionName, 'unloaded!'); }
     return true;
   }
 }

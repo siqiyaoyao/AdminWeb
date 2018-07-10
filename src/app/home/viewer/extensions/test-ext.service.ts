@@ -7,12 +7,12 @@ export class TestExtService {
 
   }
 
-  load(){
-      console.log("load normalExt");
-  } 
+  load() {
+      console.log('load normalExt');
+  }
 
-  unload(){
-      console.log("unload normalExt");
+  unload() {
+      console.log('unload normalExt');
   }
 
 }
